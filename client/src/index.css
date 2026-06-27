@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream text-brown-dark transition-colors duration-300;
+  }
+  
+  .dark body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(255, 248, 225, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(214, 175, 55, 0.15);
+}
+
+.dark .glass-panel {
+  background: rgba(27, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(214, 175, 55, 0.1);
+}
+
+/* Gold Gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF8E1 0%, #D4AF37 50%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-card {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF8E1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1B0000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #AA7C11;
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 5px rgba(214, 175, 55, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(214, 175, 55, 0.8); }
+}
+
+.pulse-gold-btn {
+  animation: pulse-gold 2.5s infinite;
+}
+
+/* True OLED Black Theme for Dark Mode with Maximum Letter Contrast */
+.dark, .dark * {
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Force almost all text tags to render pure white for maximum legibility */
+.dark span,
+.dark p,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark td,
+.dark th,
+.dark a,
+.dark li,
+.dark label,
+.dark input,
+.dark select,
+.dark textarea {
+  color: #ffffff !important;
+}
+
+/* Maintain gold branding color */
+.dark .text-gold,
+.dark .text-gold-light,
+.dark .text-gold-dark,
+.dark .text-gold-gradient,
+.dark .text-gold-card {
+  color: #d4af37 !important;
+}
+
+/* Muted grey inputs placeholder */
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #a0a0a0 !important;
+}
+
+/* Status exceptions for badging */
+.dark .text-red,
+.dark .text-red-600,
+.dark .text-red-dark {
+  color: #ef4444 !important; /* highly visible light red */
+}
+
+.dark .text-green-600,
+.dark .text-emerald-600,
+.dark .text-emerald-500 {
+  color: #10b981 !important; /* highly visible light green */
+}
+
+.dark .text-amber-600 {
+  color: #fbbf24 !important; /* amber yellow */
+}
+
+.dark .text-blue-600 {
+  color: #60a5fa !important; /* light blue */
+}
+
+.dark .text-purple-600 {
+  color: #c084fc !important; /* light purple */
+}
+
+.dark .glass-panel {
+  background: rgba(10, 10, 10, 0.9) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+}
+
+.dark .bg-brown,
+.dark .bg-brown-dark,
+.dark .bg-brown-dark\/95,
+.dark .bg-brown-dark\/80,
+.dark .bg-brown-dark\/45,
+.dark .bg-brown-dark\/60,
+.dark .bg-brown-dark\/30,
+.dark .bg-cream-light,
+.dark .bg-cream-light\/40,
+.dark .bg-cream-light\/35 {
+  background-color: #0d0d0d !important;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #000000 !important;
+  border-color: #d4af37 !important;
+}
+
+.dark .divide-gold\/10 > * + * {
+  border-color: rgba(212, 175, 55, 0.25) !important;
+}
