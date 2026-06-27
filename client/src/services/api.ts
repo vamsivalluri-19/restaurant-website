@@ -1,4 +1,12 @@
-const BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const getBaseUrl = (): string => {
+  const url = import.meta.env.VITE_API_URL || '/api';
+  if (url.startsWith('http') && !url.endsWith('/api') && !url.endsWith('/api/')) {
+    return url.replace(/\/$/, '') + '/api';
+  }
+  return url;
+};
+
+const BASE_URL = getBaseUrl();
 
 const getHeaders = () => {
   const token = localStorage.getItem('accessToken');
