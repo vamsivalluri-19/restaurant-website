@@ -5,7 +5,10 @@ let socket: Socket | null = null;
 export const initiateSocketConnection = (): Socket => {
   if (!socket) {
     console.log('🔌 Connecting to socket.io server...');
-    socket = io(window.location.origin, {
+    const socketUrl = import.meta.env.VITE_API_URL 
+      ? import.meta.env.VITE_API_URL.replace(/\/api$/, '') 
+      : window.location.origin;
+    socket = io(socketUrl, {
       transports: ['websocket', 'polling']
     });
   }
